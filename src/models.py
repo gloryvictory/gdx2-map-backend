@@ -17,3 +17,4 @@ from src.cfg import cfg
 
 class OrmBase(DeclarativeBase):
     metadata = MetaData(naming_convention=cfg.CONVENTION)  # type: ignore
+    

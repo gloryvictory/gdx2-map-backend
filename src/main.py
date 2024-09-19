@@ -6,8 +6,8 @@ from fastapi.responses import JSONResponse
 from fastapi.middleware.cors import CORSMiddleware
 
 from src import cfg
-from src.db.db import get_async_session, engine
-from src.routers import api_router
+# from src.db.db import get_async_session, engine
+# from src.routers import api_router
 
 app = FastAPI(title="GDX2 Map BackEnd")
 
@@ -23,17 +23,19 @@ app.add_middleware(
     CORSMiddleware,
     allow_origins=["*"],
     allow_credentials=True,
-    allow_methods=["GET", "POST", "OPTIONS", "DELETE", "PATCH", "PUT"],
-    allow_headers=["Content-Type", "Set-Cookie", "Access-Control-Allow-Headers", "Access-Control-Allow-Origin",
-    "Authorization"],
+    allow_methods=["*"],
+    allow_headers=["*"],
+    # allow_methods=["GET", "POST", "OPTIONS", "DELETE", "PATCH", "PUT"],
+    # allow_headers=["Content-Type", "Set-Cookie", "Access-Control-Allow-Headers", "Access-Control-Allow-Origin",
+    # "Authorization"],
 )
 
 
 # Root API
 @app.get("/", status_code=200,
-         name='Get Info',
-         tags=['Главная'],
-         description='Получает информацию о сервисе')
+        name='Get Info',
+        tags=['Главная'],
+        description='Получает информацию о сервисе')
 def root() -> JSONResponse:
     url_swagger = f"http://{cfg.SERVER_HOST}:{cfg.SERVER_PORT}/docs"
 

@@ -32,15 +32,6 @@ DATABASE_URL = cfg.DB_DSN
 if config.config_file_name is not None:
     fileConfig(config.config_file_name)
 
-# add your model's MetaData object here
-# for 'autogenerate' support
-# from myapp import mymodel
-# target_metadata = mymodel.Base.metadata
-
-
-# sys.path = ['', '..'] + sys.path[1:]
-# from src.database import Base
-
 target_metadata = Base.metadata
 
 
