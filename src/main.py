@@ -1,9 +1,16 @@
 # uvicorn main:app --reload
 # https://habr.com/ru/articles/705752/
+import sys
+import os
+
 import uvicorn
 from fastapi import FastAPI
 from fastapi.responses import JSONResponse
 from fastapi.middleware.cors import CORSMiddleware
+
+# Указываем папку к модулу - src
+sys.path.insert(1, 'src')
+os.environ['PYTHONPATH'] = os.environ.get('PYTHONPATH', '') + ';' + os.getcwd()
 
 from src import cfg
 # from src.db.db import get_async_session, engine
