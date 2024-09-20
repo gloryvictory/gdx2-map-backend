@@ -7,7 +7,7 @@ from fastapi.middleware.cors import CORSMiddleware
 
 from src import cfg
 # from src.db.db import get_async_session, engine
-# from src.routers import api_router
+from src.routers import api_router
 
 app = FastAPI(title="GDX2 Map BackEnd")
 
@@ -47,6 +47,7 @@ def root() -> JSONResponse:
 
 
 app.include_router(api_router)
+
 
 class Server():
     def __init__(self, as_service=False):
