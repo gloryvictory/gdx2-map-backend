@@ -25,7 +25,7 @@ async def stl_get_all():
             # log.info("ngp load successfully")
             return content
     except Exception as e:
-        cont_err = f"fail. can't read area from table ({M_STL.__tablename__})"
+        cont_err = f"fail. can't read table ({M_STL.__tablename__})"
         content = {"msg": cfg.MSG_ERROR, "data": f"Exception occurred {str(e)} . {cont_err}"}
         print(content)
     finally:
@@ -42,7 +42,7 @@ async def stl_get_all_count():
             content = {"msg": cfg.MSG_OK, "count": res}
             return content
     except Exception as e:
-        cont_err = f"fail. can't read ext from table ({M_STL.__tablename__})"
+        cont_err = f"fail. can't read table ({M_STL.__tablename__})"
         content = {"msg": cfg.MSG_ERROR, "data": f"Exception occurred {str(e)} . {cont_err}"}
         print(content)
     finally:

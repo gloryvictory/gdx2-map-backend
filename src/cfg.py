@@ -8,8 +8,8 @@ API_VERSION = "/api/v1"
 
 DEVENV = os.getenv("DEVENV", "dev")
 
-SERVER_HOST = os.getenv("SERVER_HOST", "0.0.0.0")
-SERVER_PORT = os.getenv("SERVER_PORT", 8082)
+SERVER_HOST = os.getenv("GDX2MAP_SERVER_HOST", "0.0.0.0")
+SERVER_PORT = os.getenv("GDX2MAP_SERVER_PORT", 8082)
 
 DB_DSN_ENV = ""
 

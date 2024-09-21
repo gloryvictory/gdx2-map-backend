@@ -13,7 +13,6 @@ sys.path.insert(1, 'src')
 os.environ['PYTHONPATH'] = os.environ.get('PYTHONPATH', '') + ';' + os.getcwd()
 
 from src import cfg
-# from src.db.db import get_async_session, engine
 from src.routers import api_router
 
 app = FastAPI(title="GDX2 Map BackEnd")
@@ -32,9 +31,6 @@ app.add_middleware(
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
-    # allow_methods=["GET", "POST", "OPTIONS", "DELETE", "PATCH", "PUT"],
-    # allow_headers=["Content-Type", "Set-Cookie", "Access-Control-Allow-Headers", "Access-Control-Allow-Origin",
-    # "Authorization"],
 )
 
 
@@ -48,7 +44,7 @@ def root() -> JSONResponse:
 
     return JSONResponse(status_code=200,
                         content={
-                            "msg": "Success",
+                            "msg": cfg.MSG_OK,
                             "Info": "Hello it is FastAPI-NSI project",
                             "Swagger Documentation": url_swagger})
 
